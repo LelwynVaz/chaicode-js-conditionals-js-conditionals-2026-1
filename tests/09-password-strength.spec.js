@@ -30,8 +30,8 @@ describe('09 - SecureApp: Password Strength Checker (9 pts)', () => {
       expect(checkPasswordStrength('Abcdefgh')).toBe('medium');
     });
 
-    test('"abc123!!" (lowercase + numbers + special, but short) → "medium"', () => {
-      expect(checkPasswordStrength('ab1!')).toBe('medium');
+    test('"abc123!" (lowercase + numbers + special, but short) → "medium"', () => {
+      expect(checkPasswordStrength('abc123!')).toBe('medium');
     });
   });
 

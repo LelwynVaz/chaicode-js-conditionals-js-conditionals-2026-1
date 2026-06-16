@@ -31,4 +31,41 @@
  */
 export function calculateTip(billAmount, serviceRating) {
   // Your code here
+  let terribleRating = 0.05;
+  let poorRating = 0.10;
+  let okayRating = 0.15;
+  let goodRating = 0.20;
+  let excellentRating = 0.25;
+  let orderTipsAmount;
+  let orderTotalAmount = billAmount;
+
+  if (serviceRating === 5 && billAmount > 0) {
+    orderTipsAmount = billAmount * excellentRating;
+    orderTotalAmount = orderTotalAmount + orderTipsAmount;
+    return {tipPercentage: excellentRating * 100, tipAmount: Math.round(orderTipsAmount * 100) / 100, totalAmount: Math.round(orderTotalAmount * 100) / 100}
+    }
+  else if (serviceRating === 4 && billAmount > 0) {
+    orderTipsAmount = billAmount * goodRating;
+    orderTotalAmount = orderTotalAmount + orderTipsAmount;
+    return {tipPercentage: goodRating * 100, tipAmount: Math.round(orderTipsAmount * 100) / 100, totalAmount: Math.round(orderTotalAmount * 100) / 100}
+  }
+  else if (serviceRating === 3 && billAmount > 0) {
+    orderTipsAmount = billAmount * okayRating;
+    orderTotalAmount = orderTotalAmount + orderTipsAmount;
+    return {tipPercentage: okayRating * 100, tipAmount: Math.round(orderTipsAmount * 100) / 100, totalAmount: Math.round(orderTotalAmount * 100) / 100};
+  }
+    else if (serviceRating === 2 && billAmount > 0) {
+    orderTipsAmount = billAmount * poorRating;
+    orderTotalAmount = orderTotalAmount + orderTipsAmount;
+    return {tipPercentage: poorRating * 100, tipAmount: Math.round(orderTipsAmount * 100) / 100, totalAmount: Math.round(orderTotalAmount * 100) / 100};
+  }
+  else if (serviceRating === 1 && billAmount > 0) {
+    orderTipsAmount = billAmount * terribleRating;
+    orderTotalAmount = orderTotalAmount + orderTipsAmount;
+    return {tipPercentage: terribleRating * 100, tipAmount: Math.round(orderTipsAmount * 100) / 100, totalAmount: Math.round(orderTotalAmount * 100) / 100};
+  }
+  else {
+    return null;
+  }
 }
+
